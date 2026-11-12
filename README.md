@@ -73,31 +73,8 @@ Download `Footwear_Demand_Intelligence_Offline.html` (included separately), doub
 
 Alternatively extract the repository ZIP and open `index.html` with its folders intact. It uses `data/dashboard-data.js` in offline mode.
 
-## Deploy to GitHub Pages
 
-1. Create a public repository named `footwear-demand-supply-intelligence` on [GitHub](https://github.com/new).
-2. Extract the GitHub-ready ZIP, then upload its contents **with `index.html` at the repository root**. Preserve the `data/` and `assets/` folders and `app.js` / `styles.css`.
-3. Commit to `main`.
-4. Go to **Settings → Pages → Deploy from a branch → main → /(root) → Save**.
-5. Use the published URL, usually `https://YOUR-USERNAME.github.io/footwear-demand-supply-intelligence/`.
-6. On hosting, the app attempts to load up-to-date CSV rows from `data/*.csv`; offline it uses the bundled JS. **Changing a CSV does not automatically retrain or recalculate forward forecasts** and you should maintain consistent fiscal/calendar fields.
 
-## LinkedIn showcase
-
-Upload `assets/linkedin_01_executive.jpg` through `linkedin_05_fy_history.jpg` as images in a LinkedIn post, then link the GitHub Pages URL in the post and your profile's Featured/Projects sections. Copy the text from `LINKEDIN_POST.txt` and/or `LINKEDIN_PROJECT_DESCRIPTION.txt`.
-
-## Project layout
-
-```text
-index.html
-app.js
-styles.css
-README.md
-LINKEDIN_POST.txt
-LINKEDIN_PROJECT_DESCRIPTION.txt
-LINKEDIN_UPLOAD_GUIDE.md
-data/
-  Footwear_Demand_Planning_FY2024-28.xlsx
   dashboard-data.js
   demand_history.csv
   demand_forecast.csv
