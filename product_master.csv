@@ -1,0 +1,19 @@
+sku,model,category,segment,brand,plant,unit_price_inr,unit_cost_inr,lead_time_days,size_range
+FW-001,AeroRun,Men,Running,STRIDE,Agra Plant,1799,973,25,6-11
+FW-002,SprintPro,Men,Running,STRIDE,Agra Plant,2199,1198,16,6-11
+FW-003,MetroWalk,Men,Casual,URBAN,Kolkata Plant,1499,774,30,6-11
+FW-004,FlexStreet,Men,Casual,URBAN,Kolkata Plant,1699,925,12,6-11
+FW-005,ClassicOxford,Men,Formal,HERITAGE,Agra Plant,2499,1378,30,6-11
+FW-006,TrailLite,Men,Sandals,STRIDE,Chennai Plant,999,552,16,6-11
+FW-007,SwiftFit,Women,Running,STRIDE,Chennai Plant,1899,982,30,3-8
+FW-008,CityBloom,Women,Casual,URBAN,Kolkata Plant,1599,922,16,3-8
+FW-009,EverydaySlip,Women,Casual,URBAN,Kolkata Plant,1299,747,12,3-8
+FW-010,Elegance,Women,Formal,HERITAGE,Agra Plant,1999,1029,25,3-8
+FW-011,Coastline,Women,Sandals,STRIDE,Chennai Plant,1199,633,16,3-8
+FW-012,ComfortFlex,Women,Sandals,URBAN,Chennai Plant,1099,628,16,3-8
+FW-013,SchoolAce,Kids,School,HERITAGE,Kolkata Plant,999,510,20,9C-5Y
+FW-014,CampusMax,Kids,School,HERITAGE,Kolkata Plant,1099,619,25,9C-5Y
+FW-015,JuniorDash,Kids,Sports,STRIDE,Agra Plant,1299,727,30,9C-5Y
+FW-016,PlayRunner,Kids,Sports,STRIDE,Agra Plant,1399,806,30,9C-5Y
+FW-017,TinySteps,Kids,Sandals,URBAN,Chennai Plant,799,447,30,9C-5Y
+FW-018,HappyWalk,Kids,Casual,URBAN,Kolkata Plant,899,526,25,9C-5Y

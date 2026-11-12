@@ -1,2 +1,127 @@
-# Footwear-Demand-Supply-Intelligence
-Footwear Demand Supply Intelligence
+# Footwear Demand & Supply Intelligence — Fiscal-Year Edition
+
+**Power BI-style interactive HTML dashboard** for a fictional Indian footwear manufacturer. Includes **two full financial years of historical data**, year-to-date actuals, forward demand planning, production and inventory risk.
+
+![Footwear Fiscal Demand and Supply Control Tower](assets/linkedin_01_executive.jpg)
+
+> **All data is synthetic and designed for a portfolio demonstration.** Product names, factory capacity, sales, production history, demand forecasts, stock movements and accuracy figures are fictitious. Archived forecast/backtest estimates and future forecasts are illustrative, **not trained ML predictions**.
+
+## Financial-year coverage (April–March)
+
+| Period | Status | Months in dataset | Use |
+|---|---|---:|---|
+| **FY 2024–25** | Complete actual | Apr 2024 – Mar 2025 (12) | Historical demand, accuracy, production and month-end stock |
+| **FY 2025–26** | Complete actual | Apr 2025 – Mar 2026 (12) | Historical year-on-year comparison and backtest |
+| **FY 2026–27** | Current mixed FY | Apr–Oct 2026 **actual** (7), Nov 2026–Mar 2027 **plan** (5) | YTD performance + balance-of-year S&OP |
+| **FY 2027–28** | Partial forward FY | Apr–Oct 2027 **forecast** (7) | Extended horizon; future FY not complete |
+
+**Last observed date:** October 31, 2026. **Forward baseline:** November 2026–October 2027 (12 months). The FY selector also offers **All Financial Years**.
+
+## Interactive dashboard
+
+Six pages: **Executive Overview**, **Demand Forecast**, **Production & Capacity**, **Inventory & Risk**, **Forecast Performance** and **Data Explorer**.
+
+- **Power BI-like slicers**: Financial Year (Apr–Mar), footwear category, brand, manufacturing plant, region, trade channel, historical window and planning window.
+- **FY reporting semantics**: completed FYs show observed demand and historic *simulated backtest forecasts*; current FY combines YTD actuals with remaining FY forecasts; FY 2027–28 shows forward planning only.
+- **Comparable FY reporting**: the executive chart compares **April–October demand across FY2024–25, FY2025–26 and FY2026–27** to avoid misleading seven-month versus full-year comparisons.
+- **Executive KPIs**: actual demand, forward or archived demand estimates, sales proxy/revenue forecast, like-for-like FY YoY, historical WAPE, fill rate, utilization and stock-risk SKU counts.
+- **Intelligent rules-based insights** respond to FY/attribute filters; forecast bias, inventory coverage, production exceptions and SKU prioritization are visible.
+- **Demand scenario studio** varies macro demand (-20% to +30%) and promotional uplift (0% to +15%) for current/future forecasts; unavailable for completed FYs.
+- **Manufacturing stock flow** bridges November–March before FY 2027–28 forecasts, so the April 2027 opening stock isn't erroneously treated as October 2026 stock.
+- Chart data labels use **12px font**, visible in SVG. No external JS, charting CDN, Power BI paid license or API key required.
+- Excel dataset, individual CSVs, screenshots, downloadable filtered CSVs and an offline single-HTML edition included.
+
+**Important aggregation rule:** plant production/capacity and inventory are at SKU/plant/month or SKU/month-end grain. **Region and channel slicers modify demand, but do not duplicate or slice plant-level production/inventory**; otherwise aggregations would be wrong. Dimension filters (category, brand, plant) affect both.
+
+## Dataset model
+
+| CSV | Grain | Rows |
+|---|---|---:|
+| `demand_history.csv` | month × SKU × region × sales channel | 6,696 |
+| `demand_forecast.csv` | month × SKU × region × sales channel | 2,592 |
+| `production_plan.csv` | month × SKU × plant | 774 |
+| `inventory_history.csv` | observed month-end × SKU | 558 |
+| `inventory_snapshot.csv` | 31 October 2026 snapshot × SKU | 18 |
+| `product_master.csv` | footwear SKU dimension | 18 |
+| `fiscal_calendar.csv` | fiscal month dimension | 43 |
+| `monthly_summary.csv` | one row per month, observed or forecast | 43 |
+
+18 SKUs, 3 fictional plants (Kolkata, Agra and Chennai), 4 Indian distribution zones, 3 sales channels and Men/Women/Kids footwear. Amounts are INR and volumes are footwear **pairs**.
+
+### Excel workbook
+
+`data/Footwear_Demand_Planning_FY2024-28.xlsx` contains **START HERE**, **FY Comparison** and eight data sheets (Fiscal Calendar, Monthly Summary, Product Master, Demand History, Demand Forecast, Production Plan, Inventory History, Inventory Snapshot). The fiscal comparison calculations use Excel formulas and row-level absolute errors aggregated into Monthly Summary.
+
+### Main measures
+
+- **Demand:** sum of actual or estimated units within the selected FY months.
+- **WAPE:** `Σ at row level |Actual - Archived Backtest| ÷ Σ Actual × 100`. Backtest is synthetic.
+- **Forecast bias:** `Σ (Backtest - Actual) ÷ Σ Actual × 100`. Positive means over-forecast.
+- **Fill rate:** `Σ Fulfilled Units ÷ Σ Actual Demand Units × 100`.
+- **Capacity utilization:** `Σ Recorded or Planned Factory Units ÷ Σ Available Factory Capacity Units × 100`.
+- **Like-for-like YoY:** FY current 7 observed months versus the **same** seven fiscal months in prior FY; prior full FY versus the full prior FY.
+- **Inventory projection:** `Ending Stock = MAX(0, Opening Stock + Planned Production - Forecast Demand)`; unmet demand tracked independently.
+- **Indicative sales/revenue:** fulfilled historical pairs × SKU list price; future demand pairs × SKU list price. This is **not booked financial revenue** or an audited P&L.
+
+## Regenerate synthetic source data
+
+Use `python3 scripts/generate_sample_data.py` from the repository root (Python standard library only) to regenerate the CSV samples and bundled `dashboard-data.js`. The checked-in Excel workbook is a separate formatted delivery and must be rebuilt after major data regeneration.
+
+## Launch offline
+
+Download `Footwear_Demand_Intelligence_Offline.html` (included separately), double-click it and open in Chrome, Safari or Edge. This self-contained single file bundles CSS, JavaScript and all sample data. No server required.
+
+Alternatively extract the repository ZIP and open `index.html` with its folders intact. It uses `data/dashboard-data.js` in offline mode.
+
+## Deploy to GitHub Pages
+
+1. Create a public repository named `footwear-demand-supply-intelligence` on [GitHub](https://github.com/new).
+2. Extract the GitHub-ready ZIP, then upload its contents **with `index.html` at the repository root**. Preserve the `data/` and `assets/` folders and `app.js` / `styles.css`.
+3. Commit to `main`.
+4. Go to **Settings → Pages → Deploy from a branch → main → /(root) → Save**.
+5. Use the published URL, usually `https://YOUR-USERNAME.github.io/footwear-demand-supply-intelligence/`.
+6. On hosting, the app attempts to load up-to-date CSV rows from `data/*.csv`; offline it uses the bundled JS. **Changing a CSV does not automatically retrain or recalculate forward forecasts** and you should maintain consistent fiscal/calendar fields.
+
+## LinkedIn showcase
+
+Upload `assets/linkedin_01_executive.jpg` through `linkedin_05_fy_history.jpg` as images in a LinkedIn post, then link the GitHub Pages URL in the post and your profile's Featured/Projects sections. Copy the text from `LINKEDIN_POST.txt` and/or `LINKEDIN_PROJECT_DESCRIPTION.txt`.
+
+## Project layout
+
+```text
+index.html
+app.js
+styles.css
+README.md
+LINKEDIN_POST.txt
+LINKEDIN_PROJECT_DESCRIPTION.txt
+LINKEDIN_UPLOAD_GUIDE.md
+data/
+  Footwear_Demand_Planning_FY2024-28.xlsx
+  dashboard-data.js
+  demand_history.csv
+  demand_forecast.csv
+  production_plan.csv
+  inventory_history.csv
+  inventory_snapshot.csv
+  product_master.csv
+  fiscal_calendar.csv
+  monthly_summary.csv
+  metadata.json
+scripts/
+  generate_sample_data.py
+assets/
+  overview_full.png
+  forecast_full.png
+  production_full.png
+  inventory_full.png
+  accuracy_full.png
+  explorer_full.png
+  linkedin_01_executive.jpg
+  linkedin_02_forecast.jpg
+  linkedin_03_inventory.jpg
+  linkedin_04_production.jpg
+  linkedin_05_fy_history.jpg
+```
+
+**Stack:** HTML5 · CSS3 · JavaScript · SVG · Excel · CSV · GitHub Pages · Financial Year / Fiscal Calendar Analytics · Demand Planning · S&OP.

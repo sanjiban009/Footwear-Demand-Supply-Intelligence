@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d1a"><meta name="description" content="Portfolio demonstration: interactive footwear demand forecasting, production capacity and inventory intelligence with synthetic manufacturing data.">
+<title>Footwear Demand & Supply Intelligence | Executive Analytics</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="layout">
+  <aside class="sidebar" aria-label="Dashboard navigation">
+    <div class="logo"><div class="logo-mark">F</div><div><div class="logo-name">FOOTWEAR<br>INTELLIGENCE</div><div class="logo-sub">FISCAL DEMAND PLANNING</div></div></div>
+    <div class="side-label">WORKSPACE</div>
+    <nav class="nav" id="nav">
+      <button class="nav-btn active" data-page="overview"><span class="nav-icon">◈</span><span class="nav-text">Executive Overview</span></button>
+      <button class="nav-btn" data-page="forecast"><span class="nav-icon">⌁</span><span class="nav-text">Demand Forecast</span></button>
+      <button class="nav-btn" data-page="production"><span class="nav-icon">▤</span><span class="nav-text">Production & Capacity</span></button>
+      <button class="nav-btn" data-page="inventory"><span class="nav-icon">◫</span><span class="nav-text">Inventory & Risk</span></button>
+      <button class="nav-btn" data-page="accuracy"><span class="nav-icon">◎</span><span class="nav-text">Forecast Performance</span></button>
+      <button class="nav-btn" data-page="explorer"><span class="nav-icon">☷</span><span class="nav-text">Data Explorer</span></button>
+    </nav>
+    <div class="side-footer"><div class="mini-tag">● DEMO DATASET</div><p>18 SKUs · 3 manufacturing plants<br>2 complete FYs + FY 2026–27 YTD<br>Actuals through 31 October 2026</p></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><div class="crumb">OPERATIONS INTELLIGENCE / <b id="breadcrumb">EXECUTIVE OVERVIEW</b></div>
+       <div class="top-actions"><span class="chip" id="dataStatus">SYNTHETIC DATA</span><button class="top-btn" id="importBtn" title="Replace historical demand records for this browser session">↑ Import Demand CSV</button><input id="importInput" class="import-input" type="file" accept=".csv,text/csv"><button class="top-btn" id="exportBtn">↓ Export View</button><button class="top-btn" id="printBtn">⎙ Print</button></div>
+    </div>
+    <section class="hero"><div><div class="eyebrow">MANUFACTURING CONTROL TOWER / <span id="fyBadge">FY 2026–27</span></div><h1 id="mainTitle">Demand & Supply Command Center</h1><p id="mainSubtitle">Forward-looking demand, production constraints and working capital signals. All figures are illustrative.</p></div><div class="hero-side"><div class="period" id="periodLabel">APR 26 – MAR 27</div><div class="period-sub" id="periodSub">ACTUAL YTD + REMAINING FY PLAN</div></div></section>
+    <section class="filters" aria-label="Interactive dashboard filters">
+      <div class="filter fy-filter"><label for="fy">Financial Year · Apr–Mar</label><select id="fy"><option value="FY 2026-27" selected>FY 2026–27 · YTD + Forecast</option><option value="FY 2025-26">FY 2025–26 · Actual</option><option value="FY 2024-25">FY 2024–25 · Actual</option><option value="FY 2027-28">FY 2027–28 · Forecast</option><option value="All">All Financial Years</option></select></div>
+      <div class="filter"><label for="category">Category</label><select id="category"></select></div>
+      <div class="filter"><label for="brand">Brand</label><select id="brand"></select></div>
+      <div class="filter"><label for="plant">Plant</label><select id="plant"></select></div>
+      <div class="filter"><label for="region">Region</label><select id="region"></select></div>
+      <div class="filter"><label for="channel">Channel</label><select id="channel"></select></div>
+      <div class="filter"><label for="historyWindow">History</label><select id="historyWindow"><option value="all" selected>Full FY / Period</option><option value="6">Last 6M</option><option value="12">Last 12M</option><option value="24">Last 24M</option></select></div>
+      <div class="filter"><label for="horizon">Planning</label><select id="horizon"><option value="all" selected>Full FY / Period</option><option value="3">First 3M</option><option value="6">First 6M</option><option value="12">First 12M</option></select></div>
+      <button class="clear-btn" id="resetFilters">↺ Reset</button>
+    </section>
+    <div id="overview" class="nav-pages active"></div>
+    <div id="forecast" class="nav-pages"></div>
+    <div id="production" class="nav-pages"></div>
+    <div id="inventory" class="nav-pages"></div>
+    <div id="accuracy" class="nav-pages"></div>
+    <div id="explorer" class="nav-pages"></div>
+    <footer class="footer"><div>FOOTWEAR INTELLIGENCE • Portfolio case study • Synthetic data only • Currency: INR (₹) • Demand volume: pairs</div><div>FY = April–March • Two complete fiscal years + latest YTD • Historical WAPE = Σ|Actual − Forecast| / ΣActual • Offline-ready</div></footer>
+  </main>
+</div>
+<script src="data/dashboard-data.js"></script><script src="app.js"></script>
+</body></html>
