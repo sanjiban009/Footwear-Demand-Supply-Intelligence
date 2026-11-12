@@ -69,7 +69,7 @@ Use `python3 scripts/generate_sample_data.py` from the repository root (Python s
 
 ## Launch offline
 
-Download `Footwear_Demand_Intelligence_Offline.html` (included separately), double-click it and open in Chrome, Safari or Edge. This self-contained single file bundles CSS, JavaScript and all sample data. No server required.
+Download the full zip where `Footwear_Demand_Intelligence_Offline.html` (included separately), double-click it and open in Chrome, Safari or Edge. This self-contained single file bundles CSS, JavaScript and all sample data. No server required.
 
 Alternatively extract the repository ZIP and open `index.html` with its folders intact. It uses `data/dashboard-data.js` in offline mode.
 
