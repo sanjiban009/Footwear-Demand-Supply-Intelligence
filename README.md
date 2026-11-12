@@ -73,32 +73,16 @@ Download `Footwear_Demand_Intelligence_Offline.html` (included separately), doub
 
 Alternatively extract the repository ZIP and open `index.html` with its folders intact. It uses `data/dashboard-data.js` in offline mode.
 
-
-
-  dashboard-data.js
-  demand_history.csv
-  demand_forecast.csv
-  production_plan.csv
-  inventory_history.csv
-  inventory_snapshot.csv
-  product_master.csv
-  fiscal_calendar.csv
-  monthly_summary.csv
-  metadata.json
-scripts/
-  generate_sample_data.py
-assets/
-  overview_full.png
-  forecast_full.png
-  production_full.png
-  inventory_full.png
-  accuracy_full.png
-  explorer_full.png
-  linkedin_01_executive.jpg
-  linkedin_02_forecast.jpg
-  linkedin_03_inventory.jpg
-  linkedin_04_production.jpg
-  linkedin_05_fy_history.jpg
-```
-
 **Stack:** HTML5 · CSS3 · JavaScript · SVG · Excel · CSV · GitHub Pages · Financial Year / Fiscal Calendar Analytics · Demand Planning · S&OP.
+
+<img width="2333" height="2870" alt="production_full" src="https://github.com/user-attachments/assets/a78bce5c-54c7-4d5e-b4d1-103a303d5c1e" />
+<img width="2333" height="3839" alt="overview_full" src="https://github.com/user-attachments/assets/de4c440a-c3d2-4bac-9e66-42e23ba9649d" />
+<img width="2333" height="2750" alt="inventory_full" src="https://github.com/user-attachments/assets/38e8dd88-4703-4808-a1ea-2969100d07a3" />
+<img width="2333" height="3113" alt="forecast_full" src="https://github.com/user-attachments/assets/261f1ffc-100e-4c5b-a16b-5895061113d9" />
+<img width="2333" height="1773" alt="explorer_full" src="https://github.com/user-attachments/assets/892a00d0-1aff-4fb9-8990-694cc1a91893" />
+<img width="2333" height="2472" alt="accuracy_full" src="https://github.com/user-attachments/assets/26a63f92-d34e-4431-a6b5-b484f4b77376" />
+
+
+
+ 
+ 
