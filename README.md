@@ -2,7 +2,7 @@
 
 **Power BI-style interactive HTML dashboard** for a fictional Indian footwear manufacturer. Includes **two full financial years of historical data**, year-to-date actuals, forward demand planning, production and inventory risk.
 
-![Footwear Fiscal Demand and Supply Control Tower](assets/linkedin_01_executive.jpg)
+[Footwear Fiscal Demand and Supply Control Tower](assets/linkedin_01_executive.jpg)
 
 > **All data is synthetic and designed for a portfolio demonstration.** Product names, factory capacity, sales, production history, demand forecasts, stock movements and accuracy figures are fictitious. Archived forecast/backtest estimates and future forecasts are illustrative, **not trained ML predictions**.
 
